@@ -1,5 +1,8 @@
 const amount = document.querySelector("#amount")
 
 amount.addEventListener("input", () => {
-  console.log(amount.value)
+  
+  const hasCharacterRegex = /\D+/g
+  amount.value = amount.value.replace(hasCharacterRegex, "")
+  
 })
