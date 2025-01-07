@@ -1,3 +1,7 @@
+const USD = 6.10;
+const EUR = 6.33;
+const GBP = 7.63;
+
 const form = document.querySelector("form")
 const amount = document.querySelector("#amount")
 const currency = document.querySelector("#currency")
@@ -11,5 +15,21 @@ amount.addEventListener("input", () => {
 
 form.onsubmit = (event) => {
   event.preventDefault()
-  console.log(currency.value)
+
+  switch(currency.value) {
+    case "USD":
+      convertCurrency(amount.value, USD, "US$")
+      break
+    case "EUR":
+      convertCurrency(amount.value, EUR, "€")
+      break
+    case "GBP": 
+      convertCurrency(amount.value, GBP, "£")
+      break
+  }
+}
+
+function convertCurrency(amount, price, symbol){
+  console.log(amount, price, symbol)
+
 }
